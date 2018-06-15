@@ -23,7 +23,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css"
             ],
             "scripts": []
           },
@@ -115,6 +117,46 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "vinci-ng-material": {
+      "root": "projects/vinci-ng-material",
+      "sourceRoot": "projects/vinci-ng-material/src",
+      "projectType": "library",
+      "prefix": "vinci",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/vinci-ng-material/tsconfig.lib.json",
+            "project": "projects/vinci-ng-material/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/vinci-ng-material/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/vinci-ng-material/src/test.ts",
+            "tsConfig": "projects/vinci-ng-material/tsconfig.spec.json",
+            "karmaConfig": "projects/vinci-ng-material/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/vinci-ng-material/tsconfig.lib.json",
+              "projects/vinci-ng-material/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]

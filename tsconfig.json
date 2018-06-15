@@ -15,6 +15,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "vinci-ng-material": [
+        "dist/vinci-ng-material"
+      ],
+      "vinci-ng-material/*": [
+        "dist/vinci-ng-material/*"
+      ]
+    }
   }
 }
