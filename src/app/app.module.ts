@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { TableModule } from 'projects/vinci-ng-material/src/lib/component/dataTable/table/table.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    MultiPanelsModule
+    MultiPanelsModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

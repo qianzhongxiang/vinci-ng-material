@@ -124,7 +124,7 @@
         }
       }
     },
-    "vinci-ng-material": {
+    "material": {
       "root": "projects/vinci-ng-material",
       "sourceRoot": "projects/vinci-ng-material/src",
       "projectType": "library",
