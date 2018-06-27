@@ -25,6 +25,12 @@ import MultiPanelsModule in your module;
   columns = [{ field: "code", title: "code", code: "code" }, { field: "name", title: "name", code: "name" }]
   displayedColumns = ['code', 'name']
 ```
+### columnItem
+field:string
+title:string
+code:string
+template:(dataItem:any,field:string)=>string
+
 ### remove items which have been selected
 ``` ts
   @ViewChild(TableComponent)

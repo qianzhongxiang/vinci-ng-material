@@ -1,1 +1,1 @@
-export * from './multi-panels'
+export * from './multi-panels/index'

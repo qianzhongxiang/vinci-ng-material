@@ -20,6 +20,7 @@
 .toolbar-panel-mp{
     /* width:260px; */
     height: 100%;
+    overflow: auto;
 }
 .toolbar-item-mp{
     height: 60px;

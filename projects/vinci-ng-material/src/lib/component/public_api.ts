@@ -1,1 +1,1 @@
-export * from './dataTable'
+export * from './dataTable/index'

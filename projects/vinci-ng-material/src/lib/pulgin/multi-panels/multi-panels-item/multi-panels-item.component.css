@@ -1,5 +1,6 @@
 :host{
     display: none;
+    height: 100%;
 }
 :host.show{
     display: block !important;
