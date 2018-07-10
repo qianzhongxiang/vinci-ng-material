@@ -11,17 +11,23 @@ export class MultiPanelsComponent implements OnInit, AfterContentInit {
     @Input("width")
     public width: string = "260px"
     ngAfterContentInit(): void {
+        if (!Number.isNaN(this.SelectedIndex)) {
+            this.Select(this.panels.toArray()[this.SelectedIndex]);
+        }
         // this.Items = this.panels.map(p => { return { iconClass: p.iconClass, title: p.title, code: p.code } })
     }
     // Items: Array<ICate>
     @ContentChildren(MultiPanelsItemComponent)
     public panels: QueryList<MultiPanelsItemComponent>
+    @Input("selected-index")
+    public SelectedIndex: number
     public SelectedItem: MultiPanelsItemComponent
     constructor() {
 
     }
 
     ngOnInit() {
+
     }
 
     Select(item: MultiPanelsItemComponent) {
