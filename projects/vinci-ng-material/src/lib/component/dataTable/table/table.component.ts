@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 const initialSelection = [];
@@ -7,6 +7,8 @@ export interface ColumnItem {
   field: string
   title: string
   template: (item, field: string) => string
+  sticky?: boolean
+  cssClassFriendlyName?: string
 }
 @Component({
   selector: 'vinci-table',
@@ -36,6 +38,10 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   @Input('displayedColumns')
   public DisplayedColumns: string[]
+  @Output("dblclick")//双击事件
+  public Dblclick = new EventEmitter();
+  @Input("row-css-class") //行样式
+  public RowCssClass: (item) => string;
   constructor() { }
   /** Whether the number of selected elements matches the total number of rows. */
   IsAllSelected() {
