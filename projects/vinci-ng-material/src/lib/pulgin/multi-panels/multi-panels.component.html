@@ -1,10 +1,13 @@
 <div class="float-left toolbar-mp border-right">
-  <a href="javascript:void(0);" (click)="Select(i)" [class.selected]="i===SelectedIndex" *ngFor="let item of panels; let i = index"
-    class="toolbar-item-mp border-bottom d-flex justify-content-center align-items-center">
-    <i class="{{item.iconClass}}"></i>&nbsp;
-  </a>
+  <div>
+    <a href="javascript:void(0);" (click)="Select(i)" [class.selected]="i===SelectedIndex" *ngFor="let item of panels; let i = index"
+      class="toolbar-item-mp border-bottom d-flex justify-content-center align-items-center">
+      <i class="{{item.iconClass}}"></i>&nbsp;
+    </a>
+  </div>
 </div>
-<div class="float-left toolbar-panel-mp border-right" [style.width]="width" *ngIf="IsShow()">
+
+<div class="float-left toolbar-panel-mp border-right" [style.width]="width" *ngIf="SelectedIndex>=0">
   <!-- TODO 使用动态加载的方式 -->
   <!-- <app-device-list *ngIf="SelectedItem.code=='deviceList'"></app-device-list>
   <app-task-list *ngIf="SelectedItem.code=='taskList'"></app-task-list> -->

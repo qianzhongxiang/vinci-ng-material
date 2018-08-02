@@ -35,13 +35,14 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatTable)
   private table: MatTable<any>
-
+  @Input('header-sticky')
+  public HeaderSticky: boolean = true
   @Input('displayedColumns')
   public DisplayedColumns: string[]
   @Output("dblclick")//双击事件
   public Dblclick = new EventEmitter();
   @Input("row-css-class") //行样式
-  public RowCssClass: (item) => string;
+  public RowCssClass: (item) => Object;
   constructor() { }
   /** Whether the number of selected elements matches the total number of rows. */
   IsAllSelected() {

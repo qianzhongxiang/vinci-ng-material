@@ -1,11 +1,15 @@
-import { Component, OnInit, Input, HostBinding } from '@angular/core';
+import { Component, OnInit, Input, HostBinding, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'vinci-multi-panels-item',
   templateUrl: './multi-panels-item.component.html',
-  styleUrls: ['./multi-panels-item.component.css']
+  styleUrls: ['./multi-panels-item.component.css'],
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MultiPanelsItemComponent implements OnInit {
+export class MultiPanelsItemComponent implements OnInit, AfterViewInit {
+  ngAfterViewInit(): void {
+    // this.changedetection.detectChanges()
+  }
   @Input("code")
   public code: string
   @Input("title")
@@ -13,7 +17,8 @@ export class MultiPanelsItemComponent implements OnInit {
   @Input("iconClass")
   public iconClass: string
   @HostBinding("class.show")
-  public show: boolean
+  public Show: boolean
+
   constructor() { }
 
   ngOnInit() {

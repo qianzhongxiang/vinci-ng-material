@@ -1,5 +1,5 @@
 import { MultiPanelsItemComponent } from './multi-panels-item/multi-panels-item.component';
-import { Component, OnInit, Input, ContentChildren, QueryList, AfterContentInit, NgModule, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, ContentChildren, QueryList, AfterContentInit, NgModule, ChangeDetectorRef, Output, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
     selector: 'vinci-multi-panels',
@@ -11,12 +11,12 @@ export class MultiPanelsComponent implements OnInit, AfterContentInit {
     @Input("width")
     public width: string = "260px"
     ngAfterContentInit(): void {
-
         // this.Items = this.panels.map(p => { return { iconClass: p.iconClass, title: p.title, code: p.code } })
     }
     // Items: Array<ICate>
     @ContentChildren(MultiPanelsItemComponent)
     public panels: QueryList<MultiPanelsItemComponent>
+    @Input("selected-index")
     public SelectedIndex: number
     // public set SelectedIndex(value: number) {
     //     if (!Number.isNaN(this.SelectedIndex)) {
@@ -34,16 +34,14 @@ export class MultiPanelsComponent implements OnInit, AfterContentInit {
     ngOnInit() {
 
     }
-
-    Select(index: number, outsideUpdate: boolean = false) {
-        if (this.SelectedIndex === index) {
-            this.SelectedIndex = undefined;
-        } else
-            this.SelectedIndex = index;
-        if (outsideUpdate) {
-            this.ChangeDetectorRef.detectChanges();
-        }
-        this.SetShow();
+    Select(index: number) {
+        setTimeout(() => {
+            if (this.SelectedIndex === index) {
+                this.SelectedIndex = undefined;
+            } else
+                this.SelectedIndex = index;
+            this.SetShow();
+        }, 100);
     }
     // Select(item: MultiPanelsItemComponent) {
     //     if (this.SelectedItem == item) {
@@ -53,8 +51,8 @@ export class MultiPanelsComponent implements OnInit, AfterContentInit {
     //     this.SetShow();
     // }
     private SetShow() {
-        this.panels.forEach(p => p.show = false);
-        if (!isNaN(this.SelectedIndex)) this.panels.toArray()[this.SelectedIndex].show = true;
+        this.panels.forEach(p => p.Show = false);
+        if (!isNaN(this.SelectedIndex)) this.panels.toArray()[this.SelectedIndex].Show = true;
     }
     public IsShow() {
         !isNaN(this.SelectedIndex)
