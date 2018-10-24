@@ -1,0 +1,6 @@
+<form>
+  <container *ngFor="let item of Options.children">
+    <vinci-input *ngIf="item.controlType=='input'" [options]="item"></vinci-input>
+    <!-- <vinci-input *ngIf="item.controlType=='input'" [options]="item"></vinci-input> -->
+  </container>
+</form>

@@ -4,6 +4,8 @@
 ## multi-panels
 ```
 import MultiPanelsModule in your module;
+
+request "front awesome"; "bootstrap";
 ```
 ### Expample
 ```html
@@ -26,11 +28,21 @@ import MultiPanelsModule in your module;
   displayedColumns = ['code', 'name']
 ```
 ### columnItem
-field:string
-title:string
-code:string
-template:(dataItem:any,field:string)=>string
-
+``` ts
+export interface ColumnItemBtn {
+  title: string;
+  class?: string;
+  click: (item: any) => void;
+}
+export interface ColumnItem {
+  field: string;
+  title: string;
+  template: (item, field: string) => string;
+  sticky?: boolean;
+  cssClassFriendlyName?: string;
+  buttons?: ColumnItemBtn[];
+}
+```
 ### remove items which have been selected
 ``` ts
   @ViewChild(TableComponent)
@@ -41,6 +53,6 @@ template:(dataItem:any,field:string)=>string
 ```
 ``` html
 <vinci-table style="width: 100%;" [dataSource]="tableDataSource" [columns]="columns" [displayedColumns]="displayedColumns"
-  [checkable]="true" [pageable]="false">
+  [checkable]="true" [pageable]="false" (rowDblclick)="click(item);">
 </vinci-table>
 ```

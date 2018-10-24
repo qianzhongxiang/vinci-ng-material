@@ -35,7 +35,7 @@ describe('TableComponent', () => {
 
   it('raises a select event when dblclick', () => {
     let i = { aaa: "", bbb: "" }
-    component.Dblclick.subscribe(item => expect(item).toBe(i));
+    component.RowDblclick.subscribe(item => expect(item).toBe(i));
     component.ItemDblclick(i);
   })
 });

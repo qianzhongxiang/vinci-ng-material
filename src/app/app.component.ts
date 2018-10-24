@@ -20,4 +20,7 @@ export class AppComponent {
   public UpdateItems() {
     this.tableDataSource = [{ code: "code3", name: 'name3' }, { code: "code3", name: 'name3' }]
   }
+  public DblClick(e) {
+    console.log(e);
+  }
 }

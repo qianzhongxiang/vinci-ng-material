@@ -7,17 +7,19 @@ import { Component, OnInit, Input, HostBinding, AfterViewInit, ChangeDetectionSt
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MultiPanelsItemComponent implements OnInit, AfterViewInit {
+  @Input('code')
+  public code: string;
+  @Input('title')
+  public title: string;
+  @Input('iconClass')
+  public iconClass: string;
+  @HostBinding('class.show')
+  public Show: boolean;
+
   ngAfterViewInit(): void {
     // this.changedetection.detectChanges()
   }
-  @Input("code")
-  public code: string
-  @Input("title")
-  public title: string
-  @Input("iconClass")
-  public iconClass: string
-  @HostBinding("class.show")
-  public Show: boolean
+
 
   constructor() { }
 

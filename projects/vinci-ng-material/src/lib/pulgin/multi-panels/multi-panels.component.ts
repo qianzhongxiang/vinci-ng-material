@@ -8,16 +8,17 @@ import { Component, OnInit, Input, ContentChildren, QueryList, AfterContentInit,
 })
 
 export class MultiPanelsComponent implements OnInit, AfterContentInit {
-    @Input("width")
-    public width: string = "260px"
+    @Input('width')
+    public width = '260px';
+    @ContentChildren(MultiPanelsItemComponent)
+    public panels: QueryList<MultiPanelsItemComponent>;
+    @Input('selected-index')
+    public SelectedIndex: number;
     ngAfterContentInit(): void {
         // this.Items = this.panels.map(p => { return { iconClass: p.iconClass, title: p.title, code: p.code } })
     }
     // Items: Array<ICate>
-    @ContentChildren(MultiPanelsItemComponent)
-    public panels: QueryList<MultiPanelsItemComponent>
-    @Input("selected-index")
-    public SelectedIndex: number
+
     // public set SelectedIndex(value: number) {
     //     if (!Number.isNaN(this.SelectedIndex)) {
     //         this.panels.toArray().indexOf()
@@ -38,8 +39,9 @@ export class MultiPanelsComponent implements OnInit, AfterContentInit {
         setTimeout(() => {
             if (this.SelectedIndex === index) {
                 this.SelectedIndex = undefined;
-            } else
+            } else {
                 this.SelectedIndex = index;
+            }
             this.SetShow();
         }, 100);
     }
@@ -52,7 +54,7 @@ export class MultiPanelsComponent implements OnInit, AfterContentInit {
     // }
     private SetShow() {
         this.panels.forEach(p => p.Show = false);
-        if (!isNaN(this.SelectedIndex)) this.panels.toArray()[this.SelectedIndex].Show = true;
+        if (!isNaN(this.SelectedIndex)) { this.panels.toArray()[this.SelectedIndex].Show = true; }
     }
     public IsShow() {
         !isNaN(this.SelectedIndex)
