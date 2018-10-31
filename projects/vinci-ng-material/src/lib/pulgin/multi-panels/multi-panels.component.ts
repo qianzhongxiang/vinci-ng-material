@@ -12,6 +12,7 @@ export class MultiPanelsComponent implements OnInit, AfterContentInit {
     public width = '260px';
     @ContentChildren(MultiPanelsItemComponent)
     public panels: QueryList<MultiPanelsItemComponent>;
+    // tslint:disable-next-line:no-input-rename
     @Input('selected-index')
     public SelectedIndex: number;
     ngAfterContentInit(): void {

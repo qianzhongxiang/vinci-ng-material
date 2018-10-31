@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, HostBinding, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'vinci-multi-panels-item',
   templateUrl: './multi-panels-item.component.html',
   styleUrls: ['./multi-panels-item.component.css'],
@@ -17,6 +18,9 @@ export class MultiPanelsItemComponent implements OnInit, AfterViewInit {
   public Show: boolean;
 
   ngAfterViewInit(): void {
+    // test  AfterViewInit
+    console.log('ngAfterViewInit');
+
     // this.changedetection.detectChanges()
   }
 

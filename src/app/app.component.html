@@ -1,5 +1,6 @@
 <!-- <vinci-multi-panels [width]="'370px'">
   <vinci-multi-panels-item [iconClass]="'fa fa-home'" [code]="'home'" [title]="'home_title'" [class]="'home'">
+    <app-panel-item-content></app-panel-item-content>
     <vinci-table style="width: 100%;" [dataSource]="tableDataSource" [columns]="columns" [displayedColumns]="displayedColumns"
       [checkable]="true" [pageable]="false">
     </vinci-table>
@@ -12,7 +13,10 @@
 <button (click)="RemoveItems();">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa remove items</button>
 <button (click)="UpdateItems();">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa update items</button> -->
 
-
+<!-- 
 <vinci-table style="width: 100%;" [dataSource]="tableDataSource" [columns]="columns" [displayedColumns]="displayedColumns"
   [checkable]="true" [pageable]="false" (rowDblclick)="DblClick($event)">
-</vinci-table>
+</vinci-table> -->
+
+<button (click)='OpenConfirmDialog();'>test confirm dialog</button>
+<button (click)='OpenCustomConfirmDialog();'>test confirm dialog</button>

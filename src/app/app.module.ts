@@ -1,20 +1,27 @@
 import { MultiPanelsModule } from './../../projects/vinci-ng-material/src/lib/pulgin/multi-panels/multi-panels.module';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { TableModule } from 'projects/vinci-ng-material/src/lib/component/dataTable/table/table.module';
+import { PanelItemContentComponent } from './panel-item-content/panel-item-content.component';
+import { DialogModule } from 'projects/vinci-ng-material/src';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PanelItemContentComponent,
+    ConfirmDialogComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule,
     MultiPanelsModule,
-    TableModule
+    TableModule,
+    DialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmDialogComponent]
 })
 export class AppModule { }

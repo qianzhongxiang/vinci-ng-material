@@ -7,13 +7,5 @@ import { ComponentType } from '@angular/cdk/portal';
   providedIn: 'root'
 })
 export class DialogService {
-  constructor(private MatDialog: MatDialog) {
 
-  }
-  public Confirm(content: string, confirm: () => void, cancel: () => void) {
-    this.MatDialog.open(ConfirmComponent, { data: { content: content, confirm: confirm, cancel: cancel } })
-  }
-  public open<T, D = any, R = any>(componentOrTemplateRef: ComponentType<T> | TemplateRef<T>, config?: MatDialogConfig<D>): MatDialogRef<T, R> {
-    return this.MatDialog.open(componentOrTemplateRef, config);
-  }
 }

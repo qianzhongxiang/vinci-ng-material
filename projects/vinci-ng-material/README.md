@@ -56,3 +56,26 @@ export interface ColumnItem {
   [checkable]="true" [pageable]="false" (rowDblclick)="click(item);">
 </vinci-table>
 ```
+
+
+##ComfirmDialog
+``` ts
+ this.dialogService.Confirm('confirm dialog showed', () => {
+      console.log('confirmed');
+    }, () => {
+      console.log('canceled');
+    }, { title: 'title'});
+```
+or
+``` html
+<vinci-confirm Title="customTitle">
+  <a href="https://www.baiud.com/"> I am custom content by vinci-confirm element</a>
+</vinci-confirm>
+```
+``` ts
+  this.dialogService.Confirm(ConfirmDialogComponent as ComponentType<any>, () => {
+      console.log('confirmed');
+    }, () => {
+      console.log('canceled');
+    });
+```
