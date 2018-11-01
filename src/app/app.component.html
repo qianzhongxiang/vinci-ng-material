@@ -18,5 +18,10 @@
   [checkable]="true" [pageable]="false" (rowDblclick)="DblClick($event)">
 </vinci-table> -->
 
-<button (click)='OpenConfirmDialog();'>test confirm dialog</button>
-<button (click)='OpenCustomConfirmDialog();'>test confirm dialog</button>
+<div>
+  <button (click)='OpenConfirmDialog();'>OpenConfirmDialog</button>
+  <button (click)='OpenCustomConfirmDialog();'>OpenCustomConfirmDialog</button>
+</div>
+<div>
+  <button (click)='OpenNoticeDialog();'>OpenNoticeDialog</button>
+</div>

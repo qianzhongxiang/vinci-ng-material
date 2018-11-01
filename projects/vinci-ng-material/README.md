@@ -68,14 +68,10 @@ export interface ColumnItem {
 ```
 or
 ``` html
-<vinci-confirm Title="customTitle">
+<vinci-confirm (Confirmed)="Confirmed();" (Canceled)="Canceled();" Title="Custom Title">
   <a href="https://www.baiud.com/"> I am custom content by vinci-confirm element</a>
 </vinci-confirm>
 ```
 ``` ts
-  this.dialogService.Confirm(ConfirmDialogComponent as ComponentType<any>, () => {
-      console.log('confirmed');
-    }, () => {
-      console.log('canceled');
-    });
+  this.dialogService.Confirm(ConfirmDialogComponent as ComponentType<any>);
 ```

@@ -1,3 +1,12 @@
-<p>
-  notice works!
-</p>
+<h4 mat-dialog-title class="{{CssClassMap[Type||0]}}">{{Title}}</h4>
+<div *ngIf="Content" mat-dialog-content>
+  {{Content}}
+</div>
+<ng-content mat-dialog-content *ngIf="!Content">
+
+</ng-content>
+
+<div mat-dialog-actions>
+  <!-- need 18 -->
+  <button mat-raised-button color="primary" (click)='Closed.emit();dialogRef.close();'>CLOSE</button>
+</div>
