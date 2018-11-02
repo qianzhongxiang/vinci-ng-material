@@ -1,5 +1,9 @@
-export * from './dialog/dialog.component'
-export * from './dialog/dialog.module'
+export * from './dialog/confirm.component';
+export * from './dialog/notice.component';
+export * from './dialog/iframe-window.component';
 
-export * from './window/window.module'
-export * from './window/window.component'
+export * from './dialog/dialog.module';
+
+
+
+

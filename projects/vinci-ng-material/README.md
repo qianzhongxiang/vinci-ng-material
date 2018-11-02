@@ -75,3 +75,20 @@ or
 ``` ts
   this.dialogService.Confirm(ConfirmDialogComponent as ComponentType<any>);
 ```
+
+##Notice dialog
+``` ts
+this.dialogService.Notice('notice dialog should be showen', NoticeDialogType.warnning, { title: 'notice dialog' }
+      , () => {
+        console.log('closed');
+      });
+```
+or using html
+略
+
+## iframe window dialog
+``` ts
+this.dialogService.Window('http://www.baidu.com', { title: 'window title', width: '500px', height: '300px' }, () => {
+      console.log('closed');
+    });
+```

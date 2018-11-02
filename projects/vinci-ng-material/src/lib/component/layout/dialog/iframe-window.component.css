@@ -1,0 +1,9 @@
+.closeIcon{
+    float: right;
+    right: 6px;
+    color: black;
+}
+
+iframe{
+    border: 0;
+}

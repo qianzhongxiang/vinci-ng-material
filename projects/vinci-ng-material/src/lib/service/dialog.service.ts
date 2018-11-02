@@ -3,6 +3,7 @@ import { ConfirmComponent, ConfirmDialogData } from '../component/layout/dialog/
 import { NoticeComponent, NoticeDialogType } from '../component/layout/dialog/notice.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { ComponentType } from '@angular/cdk/portal';
+import { IframeWindowComponent, WindowDialogData } from '../component/layout/dialog/iframe-window.component';
 
 export interface DialogOptions {
   width?: string;
@@ -83,6 +84,13 @@ export class DialogService {
   }
 
   public Window(url: string, options?: DialogOptions, closed?: () => void) {
-
+    options = options || {};
+    const data: WindowDialogData = {
+      title: options.title, width: options.width
+      , height: options.height, url: url
+    };
+    const ref = this.dialog.open(IframeWindowComponent, { data: data, disableClose: true });
+    (ref.componentInstance as IframeWindowComponent).Closed.subscribe(closed);
+    return ref;
   }
 }

@@ -48,4 +48,10 @@ export class AppComponent {
         console.log('closed');
       });
   }
+
+  public OpenWindowDialog() {
+    this.dialogService.Window('http://www.baidu.com', { title: 'window title', width: '500px', height: '300px' }, () => {
+      console.log('closed');
+    });
+  }
 }

@@ -1,0 +1,11 @@
+<div mat-dialog-title>
+  <h6>{{Title}} <a class="closeIcon" (click)="Closed.emit();dialogRef.close();" href="javascript:void(0);"><i class="fa fa-times"></i></a>
+  </h6>
+
+</div>
+
+<div mat-dialog-content>
+  <iframe #iframe [src]="Url" width="{{Width}}" height="{{Height}}">
+
+  </iframe>
+</div>

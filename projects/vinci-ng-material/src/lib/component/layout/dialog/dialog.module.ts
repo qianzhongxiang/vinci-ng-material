@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DialogComponent } from './dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatDialog, MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatDialogModule } from '@angular/material';
 import { ConfirmComponent } from './confirm.component';
 import { NoticeComponent } from './notice.component';
-import { WindowComponent } from './window.component';
+import { IframeWindowComponent } from './iframe-window.component';
 export interface DialogOptions {
   width?: string;
   data?: any;
@@ -18,9 +16,9 @@ export interface DialogOptions {
     MatDialogModule,
     MatButtonModule
   ],
-  declarations: [DialogComponent, ConfirmComponent, NoticeComponent, WindowComponent],
-  exports: [DialogComponent, ConfirmComponent, NoticeComponent],
-  entryComponents: [DialogComponent, ConfirmComponent, NoticeComponent]
+  declarations: [ConfirmComponent, NoticeComponent, IframeWindowComponent],
+  exports: [ConfirmComponent, NoticeComponent, IframeWindowComponent],
+  entryComponents: [ConfirmComponent, NoticeComponent, IframeWindowComponent]
 })
 export class DialogModule {
   constructor() {

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DialogComponent } from './dialog.component';
+import { IframeWindowComponent } from './iframe-window.component';
 
-describe('ConfirmComponent', () => {
-  let component: DialogComponent;
-  let fixture: ComponentFixture<DialogComponent>;
+describe('IframeWindowComponent', () => {
+  let component: IframeWindowComponent;
+  let fixture: ComponentFixture<IframeWindowComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DialogComponent]
+      declarations: [IframeWindowComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DialogComponent);
+    fixture = TestBed.createComponent(IframeWindowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
