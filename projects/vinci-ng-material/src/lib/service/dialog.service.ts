@@ -12,6 +12,7 @@ export interface DialogOptions {
   title?: string;
   maxWidth?: string;
   maxHeight?: string;
+  data?: any;
 }
 
 
