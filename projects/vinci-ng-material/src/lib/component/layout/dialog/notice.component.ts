@@ -9,6 +9,7 @@ export interface NoticeDialogData {
   title?: string;
   content?: string;
   type?: NoticeDialogType;
+  data?: any;
 }
 @Component({
   // tslint:disable-next-line:component-selector

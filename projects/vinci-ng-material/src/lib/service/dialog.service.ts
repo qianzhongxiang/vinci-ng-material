@@ -4,6 +4,7 @@ import { NoticeComponent, NoticeDialogType } from '../component/layout/dialog/no
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { ComponentType } from '@angular/cdk/portal';
 import { IframeWindowComponent, WindowDialogData } from '../component/layout/dialog/iframe-window.component';
+import { CustomContentDialogBase } from '../component/layout/dialog/dialog.module';
 
 export interface DialogOptions {
   width?: string;
@@ -43,12 +44,18 @@ export class DialogService {
       data: data, maxHeight: options.maxHeight, maxWidth: options.maxWidth
       , width: options.width, height: options.height, disableClose: true
     });
+    let instance: ConfirmComponent;
     if (ref.componentInstance instanceof ConfirmComponent) {
+      instance = ref.componentInstance;
+    } else {
+      instance = (ref.componentInstance as CustomContentDialogBase).SubDialogRef;
+    }
+    if (instance) {
       if (confirmed) {
-        ref.componentInstance.Confirmed.subscribe(confirmed);
+        instance.Confirmed.subscribe(confirmed);
       }
       if (canceled) {
-        ref.componentInstance.Canceled.subscribe(canceled);
+        instance.Canceled.subscribe(canceled);
       }
     }
     return ref;
@@ -71,10 +78,14 @@ export class DialogService {
       data: data, maxHeight: options.maxHeight, maxWidth: options.maxWidth
       , width: options.width, height: options.height, disableClose: true
     });
+    let instance: NoticeComponent;
     if (ref.componentInstance instanceof NoticeComponent) {
-      if (closed) {
-        (ref.componentInstance as NoticeComponent).Closed.subscribe(closed);
-      }
+      instance = ref.componentInstance;
+    } else {
+      instance = (ref.componentInstance as CustomContentDialogBase).SubDialogRef;
+    }
+    if (instance && closed) {
+      instance.Closed.subscribe(closed);
     }
     return ref;
   }
@@ -90,7 +101,9 @@ export class DialogService {
       , height: options.height, url: url
     };
     const ref = this.dialog.open(IframeWindowComponent, { data: data, disableClose: true });
-    (ref.componentInstance as IframeWindowComponent).Closed.subscribe(closed);
+    if (closed) {
+      (ref.componentInstance as IframeWindowComponent).Closed.subscribe(closed);
+    }
     return ref;
   }
 }

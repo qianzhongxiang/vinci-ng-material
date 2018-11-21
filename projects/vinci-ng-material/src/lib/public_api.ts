@@ -5,3 +5,4 @@ export * from './vinci-ng-material.module';
 export * from './vinci-store.module';
 
 export * from './component/index';
+export * from './service/index';

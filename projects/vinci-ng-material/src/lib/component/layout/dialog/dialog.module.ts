@@ -4,12 +4,9 @@ import { MatButtonModule, MatDialogModule } from '@angular/material';
 import { ConfirmComponent } from './confirm.component';
 import { NoticeComponent } from './notice.component';
 import { IframeWindowComponent } from './iframe-window.component';
-export interface DialogOptions {
-  width?: string;
-  data?: any;
-  height?: string;
+export interface CustomContentDialogBase {
+  SubDialogRef;
 }
-
 @NgModule({
   imports: [
     CommonModule,
