@@ -1,6 +1,6 @@
 {
   "name": "vinci-ng-material",
-  "version": "1.0.18",
+  "version": "1.0.20",
   "peerDependencies": {
     "bootstrap": "^4.1.1",
     "font-awesome": "^4.7.0",

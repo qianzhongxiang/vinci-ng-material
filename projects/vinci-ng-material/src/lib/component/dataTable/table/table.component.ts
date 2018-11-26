@@ -30,6 +30,8 @@ export class TableComponent implements OnInit, AfterViewInit {
   // tslint:disable-next-line:no-input-rename
   @Input('columns')
   public Columns: ColumnItem[];
+  @Input()
+  public FilterBox: boolean;
   // tslint:disable-next-line:no-input-rename
   @Input('checkable')
   public Checkable: boolean;
@@ -97,5 +99,8 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
   public RowDbclick(e: MouseEvent, row: any) {
     this.RowDblclick.emit(row);
+  }
+  public ApplyFilter(value: string) {
+    this.DataSource.filter = value.trim().toLowerCase();
   }
 }

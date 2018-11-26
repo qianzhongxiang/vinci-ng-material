@@ -4,14 +4,15 @@ import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   imports: [
     CommonModule,
     MatTableModule,
     MatPaginatorModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatFormFieldModule
   ],
   declarations: [TableComponent],
   exports: [TableComponent]

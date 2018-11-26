@@ -33,7 +33,7 @@ export class DialogService {
     , canceled?: () => void, options?: DialogOptions) {
     let ref: MatDialogRef<any>;
     options = options || {};
-    const data: ConfirmDialogData = { title: options.title };
+    const data: ConfirmDialogData = { title: options.title, data: options.data };
     let com: ComponentType<any>;
     if (typeof content === 'string') {
       data.content = content;
@@ -67,7 +67,7 @@ export class DialogService {
     closed?: () => void) {
     let ref: MatDialogRef<any>;
     options = options || {};
-    const data: ConfirmDialogData = { title: options.title };
+    const data: ConfirmDialogData = { title: options.title, data: options.data };
     let com: ComponentType<any>;
     if (typeof content === 'string') {
       data.content = content;

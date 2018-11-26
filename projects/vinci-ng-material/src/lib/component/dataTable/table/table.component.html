@@ -1,3 +1,6 @@
+<mat-form-field *ngIf="FilterBox">
+  <input matInput (keyup)="ApplyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
 <table mat-table [dataSource]="DataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="select" *ngIf="Checkable">
     <th mat-header-cell *matHeaderCellDef>
