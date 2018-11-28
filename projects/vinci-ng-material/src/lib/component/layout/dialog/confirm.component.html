@@ -8,6 +8,6 @@
 
 <div mat-dialog-actions>
   <!-- need 18 -->
-  <button mat-raised-button color="primary" (click)='Confirmed.emit();dialogRef.close();'>O K</button>
+  <button mat-raised-button color="primary" (click)='Confirmed.emit();if(CloseAfterClickBtn)dialogRef.close();'>CONFIRM</button>
   <button mat-raised-button color="secondary" (click)='Canceled.emit();dialogRef.close();'>CANCEL</button>
 </div>

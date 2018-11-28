@@ -30,10 +30,10 @@ export class DialogService {
    * @param options
    */
   public Confirm(content: string | ComponentType<ConfirmComponent>, confirmed?: () => void
-    , canceled?: () => void, options?: DialogOptions) {
+    , canceled?: () => void, options?: DialogOptions, closeAfterClickConfirm?: boolean) {
     let ref: MatDialogRef<any>;
     options = options || {};
-    const data: ConfirmDialogData = { title: options.title, data: options.data };
+    const data: ConfirmDialogData = { title: options.title, data: options.data, closeAfterClickConfirm: closeAfterClickConfirm };
     let com: ComponentType<any>;
     if (typeof content === 'string') {
       data.content = content;
@@ -45,20 +45,22 @@ export class DialogService {
       data: data, maxHeight: options.maxHeight, maxWidth: options.maxWidth
       , width: options.width, height: options.height, disableClose: true
     });
-    let instance: ConfirmComponent;
-    if (ref.componentInstance instanceof ConfirmComponent) {
-      instance = ref.componentInstance;
-    } else {
-      instance = (ref.componentInstance as CustomContentDialogBase).SubDialogRef;
-    }
-    if (instance) {
-      if (confirmed) {
-        instance.Confirmed.subscribe(confirmed);
+    ref.afterOpen().subscribe(() => {
+      let instance: ConfirmComponent;
+      if (ref.componentInstance instanceof ConfirmComponent) {
+        instance = ref.componentInstance;
+      } else {
+        instance = (ref.componentInstance as CustomContentDialogBase).SubDialogRef;
       }
-      if (canceled) {
-        instance.Canceled.subscribe(canceled);
+      if (instance) {
+        if (confirmed) {
+          instance.Confirmed.subscribe(confirmed);
+        }
+        if (canceled) {
+          instance.Canceled.subscribe(canceled);
+        }
       }
-    }
+    });
     return ref;
   }
 
@@ -79,15 +81,17 @@ export class DialogService {
       data: data, maxHeight: options.maxHeight, maxWidth: options.maxWidth
       , width: options.width, height: options.height, disableClose: true
     });
-    let instance: NoticeComponent;
-    if (ref.componentInstance instanceof NoticeComponent) {
-      instance = ref.componentInstance;
-    } else {
-      instance = (ref.componentInstance as CustomContentDialogBase).SubDialogRef;
-    }
-    if (instance && closed) {
-      instance.Closed.subscribe(closed);
-    }
+    ref.afterOpen().subscribe(() => {
+      let instance: NoticeComponent;
+      if (ref.componentInstance instanceof NoticeComponent) {
+        instance = ref.componentInstance;
+      } else {
+        instance = (ref.componentInstance as CustomContentDialogBase).SubDialogRef;
+      }
+      if (instance && closed) {
+        instance.Closed.subscribe(closed);
+      }
+    });
     return ref;
   }
 
