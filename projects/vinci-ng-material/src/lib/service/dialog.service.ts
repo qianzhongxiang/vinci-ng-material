@@ -30,10 +30,10 @@ export class DialogService {
    * @param options
    */
   public Confirm(content: string | ComponentType<ConfirmComponent>, confirmed?: () => void
-    , canceled?: () => void, options?: DialogOptions, closeAfterClickConfirm?: boolean) {
+    , canceled?: () => void, options?: DialogOptions, noCloseAfterClickConfirm?: boolean) {
     let ref: MatDialogRef<any>;
     options = options || {};
-    const data: ConfirmDialogData = { title: options.title, data: options.data, closeAfterClickConfirm: closeAfterClickConfirm };
+    const data: ConfirmDialogData = { title: options.title, data: options.data, noCloseAfterClickConfirm: noCloseAfterClickConfirm };
     let com: ComponentType<any>;
     if (typeof content === 'string') {
       data.content = content;

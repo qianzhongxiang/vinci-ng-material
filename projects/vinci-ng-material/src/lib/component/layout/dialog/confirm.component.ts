@@ -5,7 +5,7 @@ export interface ConfirmDialogData {
   title?: string;
   content?: string;
   data?: any;
-  closeAfterClickConfirm?: boolean;
+  noCloseAfterClickConfirm?: boolean;
   // confirmed?: Function;
   // cancel?: Function;
 }
@@ -24,19 +24,21 @@ export class ConfirmComponent implements OnInit {
   public Title: string;
   @Input()
   public Content: string;
-  public CloseAfterClickConfirm = true;
+  public NoCloseAfterClickConfirm;
   constructor(public dialogRef: MatDialogRef<ConfirmComponent>,
     @Inject(MAT_DIALOG_DATA) data: ConfirmDialogData) {
     if (data) {
       this.Title = data.title;
       this.Content = data.content;
-      if (data.closeAfterClickConfirm) {
-        this.CloseAfterClickConfirm = data.closeAfterClickConfirm;
-      }
+      this.NoCloseAfterClickConfirm = data.noCloseAfterClickConfirm;
     }
   }
 
   ngOnInit() {
   }
 
+  public Confirm() {
+    this.Confirmed.emit();
+    if (!this.NoCloseAfterClickConfirm) { this.dialogRef.close(); }
+  }
 }
