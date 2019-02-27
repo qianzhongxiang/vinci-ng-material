@@ -125,37 +125,42 @@
       }
     },
     "material": {
-      "root": "projects/vinci-ng-material",
-      "sourceRoot": "projects/vinci-ng-material/src",
+      "root": "projects/vgmaterial",
+      "sourceRoot": "projects/vgmaterial/src",
       "projectType": "library",
-      "prefix": "vinci",
+      "prefix": "vgm",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/vinci-ng-material/tsconfig.lib.json",
-            "project": "projects/vinci-ng-material/ng-package.json"
+            "tsConfig": "projects/vgmaterial/tsconfig.lib.json",
+            "project": "projects/vgmaterial/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/vinci-ng-material/ng-package.prod.json"
+              "project": "projects/vgmaterial/ng-package.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/vinci-ng-material/src/test.ts",
-            "tsConfig": "projects/vinci-ng-material/tsconfig.spec.json",
-            "karmaConfig": "projects/vinci-ng-material/karma.conf.js"
+            "main": "projects/vgmaterial/src/test.ts",
+            "tsConfig": "projects/vgmaterial/tsconfig.spec.json",
+            "karmaConfig": "projects/vgmaterial/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/vinci-ng-material/tsconfig.lib.json",
-              "projects/vinci-ng-material/tsconfig.spec.json"
+              "projects/vgmaterial/tsconfig.lib.json",
+              "projects/vgmaterial/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

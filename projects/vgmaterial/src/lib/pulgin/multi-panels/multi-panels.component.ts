@@ -60,4 +60,10 @@ export class MultiPanelsComponent implements OnInit, AfterContentInit {
     public IsShow() {
         !isNaN(this.SelectedIndex)
     }
+    /**
+     * 隐藏所有panel *请异步调用*
+     */
+    public Hide() {
+        this.SelectedIndex = undefined;
+    }
 }

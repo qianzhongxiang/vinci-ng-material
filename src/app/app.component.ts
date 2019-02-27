@@ -1,9 +1,9 @@
-import { TableComponent } from 'projects/vinci-ng-material/src';
+import { TableComponent } from 'projects/vgmaterial/src';
 import { Component, ViewChild } from '@angular/core';
-import { DialogService } from 'projects/vinci-ng-material/src/lib/service/dialog.service';
+import { DialogService } from 'projects/vgmaterial/src/lib/service/dialog.service';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { ComponentType } from '@angular/cdk/portal';
-import { NoticeDialogType } from 'projects/vinci-ng-material/src/lib/component/layout/dialog/notice.component';
+import { NoticeDialogType } from 'projects/vgmaterial/src/lib/component/layout/dialog/notice.component';
 
 @Component({
   selector: 'app-root',

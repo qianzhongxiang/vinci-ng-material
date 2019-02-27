@@ -24,6 +24,7 @@ export interface ColumnItem {
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit, AfterViewInit {
+  public preFilterValue: string;
   // tslint:disable-next-line:no-input-rename
   @Input('pageable')
   public Pageable: boolean;
@@ -35,6 +36,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   // tslint:disable-next-line:no-input-rename
   @Input('checkable')
   public Checkable: boolean;
+
   public Selection = new SelectionModel<any>(allowMultiSelect, initialSelection);
   private _dataSource: MatTableDataSource<any>;
   @ViewChild(MatTable)
@@ -76,7 +78,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
   ngOnInit() {
     if (this.Checkable) {
-      this.DisplayedColumns.unshift('select')
+      this.DisplayedColumns.unshift('select');
     }
   }
   /**
@@ -101,6 +103,8 @@ export class TableComponent implements OnInit, AfterViewInit {
     this.RowDblclick.emit(row);
   }
   public ApplyFilter(value: string) {
-    this.DataSource.filter = value.trim().toLowerCase();
+    if (value) {
+      this.DataSource.filter = this.preFilterValue = value.trim().toLowerCase();
+    }
   }
 }

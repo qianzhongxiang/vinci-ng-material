@@ -1,0 +1,28 @@
+<button (click)="resetLayout();">reset layout</button>
+<button (click)="addRow();">add a row</button>
+<button (click)="removeRow();">remove a row</button>
+<vgm-grid [templateRef]="tttt" [layoutId]='layoutId'></vgm-grid>
+
+<ng-template #tttt let-cellId="id">
+  <ng-container [ngSwitch]="cellId">
+    <div *ngSwitchCase="'r1c1'">
+      <h4 style="background-color:aqua"> {{cellId}}</h4>
+    </div>
+    <div *ngSwitchCase="'r1c2'">
+      <h4 style="background-color:aquamarine"> {{cellId}}</h4>
+    </div>
+    <div *ngSwitchCase="'r2c1'">
+      <h4 style="background-color:blue"> {{cellId}}</h4>
+    </div>
+    <div *ngSwitchCase="'r2c2'">
+      <h4 style="background-color:blueviolet"> {{cellId}}</h4>
+    </div>
+
+    <div *ngSwitchCase="'r3c1'">
+      <h4 style="background-color:chartreuse"> {{cellId}}</h4>
+    </div>
+    <div *ngSwitchCase="'r3c2'">
+      <h4 style="background-color:coral"> {{cellId}}</h4>
+    </div>
+  </ng-container>
+</ng-template>

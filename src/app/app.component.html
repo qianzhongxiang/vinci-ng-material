@@ -17,7 +17,7 @@
 <vinci-table style="width: 100%;" [dataSource]="tableDataSource" [columns]="columns" [displayedColumns]="displayedColumns"
   [checkable]="true" [pageable]="false" (rowDblclick)="DblClick($event)">
 </vinci-table> -->
-
+<!-- 
 <div>
   <h6>Confirm Dialog</h6>
   <button (click)='OpenConfirmDialog();'>OpenConfirmDialog</button>
@@ -30,4 +30,7 @@
 <div>
   <h6>Window Dialog</h6>
   <button (click)='OpenWindowDialog();'>OpenWindowDialog</button>
-</div>
+</div> -->
+
+<router-outlet>
+</router-outlet>

@@ -1,6 +1,10 @@
 {
-  "name": "vinci-ng-material",
-  "version": "1.0.24",
+  "name": "vgmaterial",
+  "description": "material based on angular js",
+  "author": {
+    "name": "Quick Xavier"
+  },
+  "version": "2.0.1",
   "peerDependencies": {
     "bootstrap": "^4.1.1",
     "font-awesome": "^4.7.0",

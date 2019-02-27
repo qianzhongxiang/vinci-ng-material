@@ -1,0 +1,6 @@
+<ng-container *ngFor="let c of data.children">
+  <!-- <vgm-row *ngIf="c.children&&c.children.length>0" [data]="c" class="col row" [templateRef]="templateRef"></vgm-row> -->
+  <div [class]="c.col?'col-'+c.col:'col'" id="{{c.id}}" *ngIf="!c.children||c.children.length==0">
+    <ng-container *ngTemplateOutlet="templateRef;context:c;"></ng-container>
+  </div>
+</ng-container>

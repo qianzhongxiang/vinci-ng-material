@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VinciNgMaterialComponent } from './vinci-ng-material.component';
+import { RowComponent } from './row.component';
 
-describe('VinciNgMaterialComponent', () => {
-  let component: VinciNgMaterialComponent;
-  let fixture: ComponentFixture<VinciNgMaterialComponent>;
+describe('RowComponent', () => {
+  let component: RowComponent;
+  let fixture: ComponentFixture<RowComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VinciNgMaterialComponent ]
+      declarations: [ RowComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VinciNgMaterialComponent);
+    fixture = TestBed.createComponent(RowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
