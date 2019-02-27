@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store, select, createSelector } from '@ngrx/store';
 import { LayoutStat } from '../reducer/layer-reducer';
 import {
-  LayoutResetAction, LayoutRemoveAction, LayoutAddAction, LayoutAddItemAction
+  LayoutSetAction, LayoutRemoveAction, LayoutAddItemAction
   , LayoutRemoveItemAction, LayoutResetItemAction
 } from '../actions/layout-actions';
 import { Observable } from 'rxjs';
@@ -32,12 +32,10 @@ export class LayoutService {
   GetPipe(id: string): Observable<Row[]> {
     return this.store.pipe(select(selectLayout, id));
   }
-  Reset(id: string, structure: Row[]) {
-    this.store.dispatch(new LayoutResetAction({ id: id, structure: structure }));
+  Set(id: string, structure: Row[]) {
+    this.store.dispatch(new LayoutSetAction({ id: id, structure: structure }));
   }
-  Add(id: string, structure: Row[]) {
-    this.store.dispatch(new LayoutAddAction({ id: id, structure: structure }));
-  }
+
   Remove(id: string) {
     this.store.dispatch(new LayoutRemoveAction({ id: id }));
   }

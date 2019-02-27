@@ -11,7 +11,7 @@ export class LayoutComponent implements OnInit {
   constructor(private layoutservice: LayoutService) { }
 
   ngOnInit() {
-    this.layoutservice.Add(this.layoutId, [
+    this.layoutservice.Set(this.layoutId, [
       {
         id: 'r1',
         children: [
@@ -39,7 +39,7 @@ export class LayoutComponent implements OnInit {
     ]);
   }
   resetLayout() {
-    this.layoutservice.Reset(this.layoutId, [
+    this.layoutservice.Set(this.layoutId, [
       {
         id: 'r1',
         children: [

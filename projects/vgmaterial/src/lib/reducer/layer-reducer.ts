@@ -6,8 +6,7 @@ const gobalStat: LayoutStat = {};
 
 export function LayoutReducer(stat: LayoutStat = gobalStat, action: LayoutUnionAction) {
     switch (action.type) {
-        case LayoutActionType.Reset:
-        case LayoutActionType.Add:
+        case LayoutActionType.Set:
             return { ...stat, [action.payload.id]: action.payload.structure };
         case LayoutActionType.Remove:
             delete stat[action.payload.id];
